@@ -1,12 +1,5 @@
-html
-{
-	height: 100%;
-	width: 100%;
-}
-
 body
 {
-	height: 100%;
 	overflow: hidden;
 	font-family: "Tahoma";
 	color: #6F6E67;
@@ -46,7 +39,6 @@ p
 	position: absolute;
 	top: 0px;
 	left: 0px;
-	vertical-align: middle;
 	width: 100%;
 	height: 100%;
 }
@@ -55,14 +47,11 @@ p
 {
 	position: relative;
 	top: 10px;
-	vertical-align: middle;
 	text-align: center;
 }
 
 [class^='sqr'] > p
 {
-	width: inherit;
-	height: inherit;
 	line-height: 100%;
 	font-size: 30px;
 	color: #191B21;
@@ -71,18 +60,16 @@ p
 
 #container
 {
-	height: 100%;
+	position: fixed;
 	width: 100%;
 }
 
 /*If you want the sqrs in different a different location, move the bar*/
 #bar
 {
-	position: absolute;
-	width: 100%;
-	height: auto;
-	top: 33%;
-	left: 20%;
+	top: 50%;
+	width: 1105px;
+	margin: 15% auto; /*center the bar*/
 }
 
 /*style for generic square*/
