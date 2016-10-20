@@ -1,0 +1,254 @@
+body
+{
+	overflow: hidden;
+	font-family: "Tahoma";
+	color: #6F6E67;
+	background-color: #484B54;
+}
+
+#bgimg
+{
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	position: fixed;
+	background-image: url("tree.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	filter: blur(3px) contrast(105%) saturate(110%);
+}
+
+a
+{
+	text-decoration: none;
+	color: #FFFFFF;
+	line-height: 20px;
+}
+
+p
+{
+	text-decoration: none;
+	color: #FFFFFF;
+	line-height: 10px;
+	font-size: 30px;
+}
+
+[class^='link'] > a
+{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+[class^='link'] > p
+{
+	position: relative;
+	top: 10px;
+	text-align: center;
+}
+
+[class^='sqr'] > p
+{
+	line-height: 100%;
+	font-size: 30px;
+	color: #191B21;
+	text-align: center;
+}
+
+#container
+{
+	position: fixed;
+	width: 100%;
+}
+
+/*If you want the sqrs in different a different location, move the bar*/
+#bar
+{
+	top: 50%;
+	width: 1105px;
+	margin: 15% auto; /*center the bar*/
+}
+
+/*style for generic square*/
+[class^='sqr']
+{
+	position: relative;
+	width: 250px;
+	height: 100px;
+	margin: 50px 1% 0% 1%;
+	/* background-color: #191B21; BLACK */
+	background-color: #FFFFFF;
+	display: inline-block;
+	font-size: 16px;
+	box-shadow: 0px 8px 15px #000000;
+}
+
+
+/* Buttons */
+[class^='link']:hover
+{
+	background-color: #32343B !important;	
+}
+
+[class^='link']
+{
+	position: absolute;
+	width: 250px;
+	height: 90px;
+	background-color: #484B54;
+	visibility: hidden;
+	animation-duration: 0.5s;
+}
+
+@keyframes enter
+{
+	0%
+	{
+		opacity: 0;
+		visibility: hidden;
+		background-color: #191B21;
+	}
+
+	50%
+	{
+		background-color: #484B54;
+	}
+
+	100%
+	{
+		opacity: 1;
+		visibility: inherit;
+		background-color: #191B21;
+	}
+}
+
+[class^='sqr']:hover [class^='link']
+{
+	animation-name: enter;
+	animation-play-state: running;
+	animation-fill-mode: forwards;
+}
+
+/* Animation style */
+[class^='sqr']
+{
+	transition-property: width, height, margin, transform;
+	transition-duration: .5s;
+	transition-timing-function: cubic-bezier(.17,.84,.44,1);
+}
+
+/* 
+
+	Each sqr has a seperate hover animation due to varying size
+	Height is calculated as: 109px + (the number of links multiplied by 99px)
+	If you want a consistent size, uncomment this and remove or comment out the individual sqrs
+	
+[class^='sqr']:hover
+{
+	width: 250px;
+	height: 604px;
+	margin: 50px 1% 0% 1%;;
+	transform: translate( 0px, -105px );
+	box-shadow: 0px 5px 15px #000000;
+}
+*/
+.sqr1:hover
+{
+	width: 250px;
+	height: 505px;
+	margin: 50px 1% 0% 1%;;
+	transform: translate( 0px, -105px );
+	box-shadow: 0px 5px 15px #000000;
+}
+.sqr2:hover
+{
+	width: 250px;
+	height: 604px;
+	margin: 50px 1% 0% 1%;;
+	transform: translate( 0px, -105px );
+	box-shadow: 0px 5px 15px #000000;
+}
+.sqr3:hover
+{
+	width: 250px;
+	height: 307px;
+	margin: 50px 1% 0% 1%;;
+	transform: translate( 0px, -105px );
+	box-shadow: 0px 5px 15px #000000;
+}
+.sqr4:hover
+{
+	width: 250px;
+	height: 406px;
+	margin: 50px 1% 0% 1%;;
+	transform: translate( 0px, -105px );
+	box-shadow: 0px 5px 15px #000000;
+}
+
+/*Each link has a 9px gap between */
+.link1
+{
+	top: 109px;
+	left: 0px;
+	animation-delay: .3s;
+}
+
+.link2
+{
+	top: 208px;
+	left: 0px;
+	animation-delay: .4s;
+}
+
+.link3
+{
+	top: 307px;
+	left: 0px;
+	animation-delay: .5s;
+}
+
+.link4
+{
+	top: 406px;
+	left: 0px;
+	animation-delay: .6s;
+}
+
+.link5
+{
+	top: 505px;
+	left: 0px;
+	animation-delay: .7s;
+}
+
+.link6
+{
+	top: 604px;
+	left: 0px;
+	animation-delay: .8s;
+}
+
+.link7
+{
+	top: 703px;
+	left: 0px;
+	animation-delay: .9s;
+}
+
+.link8
+{
+	top: 802px;
+	left: 0px;
+	animation-delay: 1.0s;
+}
+
+.link9
+{
+	top: 901px;
+	left: 0px;
+	animation-delay: 1.1s;
+}
