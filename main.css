@@ -22,14 +22,13 @@ a
 	top: 0px;
 	width: 480px;
 	height: 270px;
-
 }
 
 p
 {
 	position: relative;
 	text-decoration: none;
-	color: #FFFFFF;
+	color: #0F0F0F;
 	font-size: 40px;
 }
 
@@ -46,14 +45,32 @@ p
 	text-align: center;
 }
 
+.whitebar
+{
+	position: absolute;
+	display: block;
+	width: 480px;
+	height: 350px;
+	background-color: #FFFFFF;
+	z-index: -2;
+}
+
 .link
 {
 	position: relative;
 	display: inline-block;
 	width: 480px;
-	height: 400px;
+	height: 350px;
 	margin: 4% 4%;
+	box-shadow: 0px 5px 10px #000000;
+	z-index: 1;
 }
+
+[class^='link'] > p
+{
+	top: 70%;
+}
+
 [class^='image']
 {
 	position: absolute;
@@ -66,11 +83,12 @@ p
 	z-index: -1;	
 }
 
-[class^='navbar'] > p
+h1
 {
 	margin: auto;
 	text-align: center;
-	color: #0F0F0F
+	color: #0F0F0F;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
 
 .image1
