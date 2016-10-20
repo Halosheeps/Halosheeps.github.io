@@ -1,15 +1,28 @@
 body
 {
-	background-color: #0F0F0F;
-	Font-family: "Arial";
+	background-color: #1F1F1F;
+	font-family: "arial";
 }
 
 .navbar
 {
-	display: inline-block;
-	height: 100px;
+	position: fixed;
+	display: block;
+	top:0;
+	left:0;
+	height: 50px;
 	width: 100%;
-	background-color: #505050;
+	background-color: #FFFFFF;
+}
+a
+{
+	position: absolute;
+	display: inline-block;
+	left: 0px;
+	top: 0px;
+	width: 480px;
+	height: 270px;
+
 }
 
 p
@@ -17,8 +30,7 @@ p
 	position: relative;
 	text-decoration: none;
 	color: #FFFFFF;
-	line-height: 0px;
-	font-size: 50px;
+	font-size: 40px;
 }
 
 #container
@@ -38,23 +50,35 @@ p
 {
 	position: relative;
 	display: inline-block;
-	width: 300px;
+	width: 480px;
 	height: 400px;
-	margin: 50px 2% 2% 2%;
+	margin: 4% 4%;
 }
-.image
+[class^='image']
 {
 	position: absolute;
 	display: inline-block;
 	left: 0px;
 	top: 0px;
-	width: 300px;
-	height: 300px;
-	background-image: url(Whitecards.PNG);
-	z-index: -1
+	width: 480px;
+	height: 270px;
+	background-size: cover;
+	z-index: -1;	
 }
+
 [class^='navbar'] > p
 {
-	vertical-align: middle;
+	margin: auto;
 	text-align: center;
+	color: #0F0F0F
+}
+
+.image1
+{
+	background-image: url(Whitecards.png);
+}
+
+.image2
+{
+	background-image: url(Whitecards.png);
 }
