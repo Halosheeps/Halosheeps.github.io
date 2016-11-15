@@ -1,6 +1,6 @@
 body
 {
-	background-color: #1F1F1F;
+	background-color: #383838;
 	font-family: "arial";
 }
 
@@ -13,6 +13,7 @@ body
 	height: 50px;
 	width: 100%;
 	background-color: #FFFFFF;
+	box-shadow: 0px 6px 4px #000000;
 }
 a
 {
@@ -62,7 +63,7 @@ p
 	width: 480px;
 	height: 350px;
 	margin: 4% 4%;
-	box-shadow: 0px 5px 10px #000000;
+	box-shadow: 0px 6px 8px #000000;
 	z-index: 1;
 }
 
