@@ -98,7 +98,8 @@ p
 [class^='link']
 {
 	position: absolute;
-	width: 250px;
+	margin: 0px 0px 0px 3px;
+	width: 244px;
 	height: 90px;
 	background-color: #484B54;
 	visibility: hidden;
