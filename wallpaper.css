@@ -1,0 +1,54 @@
+@font-face
+{
+	font-family: pixelgosub;
+	src: url(pixelgosub.otf);
+}
+
+body
+{
+	background-color: black;
+	font-family: pixelgosub;
+	font-size: 12px;
+	color: #FFFFFF;
+	/*text-shadow: 2px 2px 2px #000000; /* h-shadow v-shadow blur-radius color */
+	overflow: hidden;
+}
+
+#container
+{
+	display: flex;
+	justify-content: center;
+	height: 50vw;
+}
+
+#bar
+{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#square
+{
+	display: flex;
+	border: 8px solid #FFFFFF;
+	/*border-radius: 4px;*/
+	width: 312px;
+	height: 312px;
+	margin-bottom: 30px;
+}
+
+#square > p
+{
+	top: 242px;
+	position: relative;
+	margin-left: 40px;
+}
+
+#textbar
+{
+	margin-left: 48px;
+}
+
+
