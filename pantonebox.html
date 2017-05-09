@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="wallpaper.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+	
+	
+	<body>	
+		<div id = "container">
+			<div id = "bar">
+				<div id = "square">
+					<p>COLORS</p>
+				</div>
+				<div id = "textbar">
+					<div id = "NAME">
+					</div>
+					<div id = "ID">
+					</div>
+					<div id = "RGB2">
+					</div>
+					<div id = "HEX2">
+					</div>
+				</div>
+			</div>
+		</div>	
+		
+		<script>
+		$.get("http://www.pantone.com/colorstrology", function (html) 
+		{
+			var $html = $(html);
+			$("#ID").set.text(($html.find('span.numLogon').text()));
+		});
+		</script>
+		
+	</body>
+</html>
