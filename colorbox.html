@@ -6,30 +6,57 @@
 		<script>
 			
 			var interval;
- 
+			var grad = false;
+			
 			function changeColor() 
 			{
-			interval = setInterval(pickColor, (1000 * 60 * 60));
+				interval = setInterval(pickColor, (1000 * 60 * 60));
+			}
+			
+			function setGrad(x)
+			{
+				grad = x;
+			}
+			
+			function getGrad()
+			{
+				return grad;
 			}
 			
 			function pickColor()
 			{
 				//pick 3 random colors
-				var r = Math.floor((Math.random() * 205) + 50 );
-				var g = Math.floor((Math.random() * 205) + 50 );
-				var b = Math.floor((Math.random() * 205) + 50 );
-				//change text to rgba and hex values for our color
-				document.getElementById('RGB').innerHTML = "RGB " + r + " " + g + " " + b + "";
-				document.getElementById('HEX').innerHTML = "0x" + r.toString(16).toUpperCase() + g.toString(16).toUpperCase() + b.toString(16).toUpperCase();
-				//change our background to the new color
-				document.body.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+				var r = Math.floor((Math.random() * 195) + 20 );
+				var g = Math.floor((Math.random() * 195) + 20 );
+				var b = Math.floor((Math.random() * 195) + 20 );
 				
+				//change text to rgba and hex values for our color
+				document.getElementById('HEX').innerHTML = "0x" + r.toString(16).toUpperCase() + g.toString(16).toUpperCase() + b.toString(16).toUpperCase();
+
+				//change our background to the new color
+				if (grad)
+				{
+					var r1 = Math.floor((Math.random() * 205) + 50 );
+					var g1 = Math.floor((Math.random() * 205) + 50 );
+					var b1 = Math.floor((Math.random() * 205) + 50 );
+					document.body.style.background = "linear-gradient(90deg, rgb(" + r + "," + g + "," + b + "), rgb(" + r1 + "," + g1 + "," + b1 + ") ";
+					document.getElementById('RGB').innerHTML = "LEFT RGB " + r + " " + g + " " + b;
+					document.getElementById('RGB2').innerHTML = "RIGHT RGB " + r1 + " " + g1 + " " + b1;
+					document.getElementById('HEX2').innerHTML = "0x" + r1.toString(16).toUpperCase() + g1.toString(16).toUpperCase() + b1.toString(16).toUpperCase();
+				}
+				
+				else
+				{
+					document.body.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+					document.getElementById('RGB').innerHTML = "RGB " + r + " " + g + " " + b;
+				}
 			}
 			
 			function randomColor() 
 			{
 				return Math.floor((Math.random() * 255));
-			}			
+			}	
+			
 		</script>
     </head>
 	
@@ -44,6 +71,10 @@
 					<div id = "RGB">
 					</div>
 					<div id = "HEX">
+					</div>
+					<div id = "RGB2">
+					</div>
+					<div id = "HEX2">
 					</div>
 				</div>
 			</div>
