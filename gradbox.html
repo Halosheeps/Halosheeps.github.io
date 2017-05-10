@@ -2,9 +2,8 @@
 <html>
 	<head>
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="wallpaper.css">	
-		<script>
-			
+        <link rel="stylesheet" type="text/css" href="gradient.css">	
+		<script>			
 			var interval;
 			var grad = true;
 			
@@ -62,9 +61,11 @@
 					var g1 = Math.floor((Math.random() * 205) + 50 );
 					var b1 = Math.floor((Math.random() * 205) + 50 );
 					//document.body.style.background = "linear-gradient(35deg, rgb(" + r + "," + g + "," + b + "), rgb(" + r1 + "," + g1 + "," + b1 + ") ";
-					document.getElementById('bgimg').style.background = "linear-gradient(35deg, rgb(" + r + "," + g + "," + b + "), rgb(" + r1 + "," + g1 + "," + b1 + ") ";
-					document.getElementById('RGB').innerHTML = "LEFT RGB " + r + " " + g + " " + b;
-					document.getElementById('RGB2').innerHTML = "RIGHT RGB " + r1 + " " + g1 + " " + b1;
+					document.getElementById('bgimg').style.background = "linear-gradient(135deg, rgb(" + r + "," + g + "," + b + "), rgb(" + r1 + "," + g1 + "," + b1 + ") ";
+					document.getElementById('leftsquare').style.background = "linear-gradient(135deg, rgb(" + r + "," + g + "," + b + "), rgb(" + r1 + "," + g1 + "," + b1 + ") ";
+					document.getElementById('rightsquare').style.background = "linear-gradient(135deg, rgb(" + r + "," + g + "," + b + "), rgb(" + r1 + "," + g1 + "," + b1 + ") ";
+					document.getElementById('RGB').innerHTML = "RGB " + r + " " + g + " " + b;
+					document.getElementById('RGB2').innerHTML = "RGB " + r1 + " " + g1 + " " + b1;
 					document.getElementById('HEX2').innerHTML = "0x" + r1.toString(16).toUpperCase() + g1.toString(16).toUpperCase() + b1.toString(16).toUpperCase();
 				}
 				
@@ -89,18 +90,26 @@
 		</div>
 		<div id = "container">
 			<div id = "bar">
-				<div id = "square" onclick="pickColor();">
-					<p>COLORS</p>
-				</div>
-				<div id = "textbar">
-					<div id = "RGB" class = "text" onclick="toggleGrad();">
+				<div id = "squarecontainer1">
+				
+					<div id = "leftsquare" class = "squareclass" onclick="pickColor();">						
+					</div>
+					<div id = "RGB" class = "text">
 					</div>
 					<div id = "HEX" class = "text">
+					</div>
+					
+				</div>
+				
+				<div id = "squarecontainer2">
+				
+					<div id = "rightsquare" class = "squareclass">						
 					</div>
 					<div id = "RGB2" class = "text">
 					</div>
 					<div id = "HEX2" class = "text">
 					</div>
+					
 				</div>
 			</div>
 		</div>		
