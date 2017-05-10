@@ -11,64 +11,61 @@
 		<div id = "container">
 			<div id = "bar">
 				<div id = "square">
-					<p>COLORS</p>
+					<p>PANTONE</p>
 				</div>
 				<div id = "textbar">
-					<div id = "NAME">
+					<div id = "NAME" class = "text">>
 					</div>
-					<div id = "ID">
+					<div id = "ID" class = "text">>
 					</div>
-					<div id = "RGB2">
-					</div>
-					<div id = "HEX2">
+					<div id = "HEX" class = "text">
 					</div>
 				</div>
 			</div>
 		</div>	
 		
 		<script>
-		$.ajax
-		(
+		
+			//call this function to convert returned rgb css values into hex with a leading 0x
+			function rgbToHex(rgb) 
 			{
-				type: 'GET',
-				url: 'https://www.pantone.com/colorstrology',
-				contentType: 'text/plain',
-				 xhrFields: 
-				 {
-					// The 'xhrFields' property sets additional fields on the XMLHttpRequest.
-					// This can be used to set the 'withCredentials' property.
-					// Set the value to 'true' if you'd like to pass cookies to the server.
-					// If this is enabled, your server must respond with the header
-					// 'Access-Control-Allow-Credentials: true'.
-					withCredentials: false
-				},
-				headers: 
+				rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+				function hex(x) 
 				{
-					// Set any custom headers here.
-					// If you set any non-simple headers, your server must include these
-					// headers in the 'Access-Control-Allow-Headers' response header.
-					'Access-Control-Allow-Origin': '*'
-				},
-				success: function() 
+					return ("0" + parseInt(x).toString(16)).slice(-2);
+				}
+				return "0x" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+			}
+			
+			//Route CORS requests through cors-anywhere
+			$.ajaxPrefilter(function (options) 
+			{
+				if (options.crossDomain && jQuery.support.cors) 
 				{
-					$.get("https://www.pantone.com/colorstrology", function (html) 
+					var http = (window.location.protocol === 'http:' ? 'http:' : 'https:');
+					options.url = http + '//cors-anywhere.herokuapp.com/' + options.url;
+					//options.url = "http://cors.corsproxy.io/url=" + options.url;
+				}
+			});
+			
+			//get necessary information from colorstrology
+			$.get
+			(
+				'https://www.pantone.com/colorstrology',
+				function (html) 
 					{
 						var $html = $(html);
-						$("#ID").text(($html.find('span.numLogon').text()));
-					});
-				},
-				error: function() 
-				{
-					// Here's where you handle an error response.
-					// Note that if the error was due to a CORS issue,
-					// this function will still fire, but there won't be any additional
-					// information about the error.
-					$("#ID").text("blah");
-				}
-			}
-		);
-		
-		
+						var idStr = [];
+						var color = $html.find('#ctl00_ctlDynamicControl1_plColorstrologyBackgroundPanel').css("background-color");
+						
+						idStr = $html.find('span.numLogon').text().split(' ');	
+						
+						$("#NAME").text(($html.find('span.nameLogon').text()));
+						$("#ID").text(idStr[1]);
+						$("#HEX").text(rgbToHex(color));
+						$("body").css("background-color", color);
+					}
+			);
 		</script>
 		
 	</body>

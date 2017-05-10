@@ -1,14 +1,14 @@
 @font-face
 {
-	font-family: pixelgosub;
-	src: url(pixelgosub.otf);
+	font-family: wendy;
+	src: url(wendy.ttf);
 }
 
 body
 {
 	background-color: black;
-	font-family: pixelgosub;
-	font-size: 12px;
+	font-family: wendy;
+	font-size: 16px;
 	color: #FFFFFF;
 	/*text-shadow: 2px 2px 2px #000000; /* h-shadow v-shadow blur-radius color */
 	overflow: hidden;
@@ -51,4 +51,7 @@ body
 	margin-left: 48px;
 }
 
-
+.text
+{
+	margin-bottom: -10px;
+}
