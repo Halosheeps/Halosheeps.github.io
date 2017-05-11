@@ -3,96 +3,17 @@
 	<head>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="gradient.css">	
-		<script>			
-			var interval;
-			var grad = true;
-			
-			
-			
-			function changeColor() 
-			{
-				interval = setInterval(pickColor, (1000 * 60 * 60));
-			}
-			
-			function toggleGrad()
-			{
-				if (grad)
-				{
-					grad = false;
-					//remove background gradient if it exists and seconds RGB and HEX
-					document.getElementById('bgimg').style.background = "none";
-					document.getElementById('RGB2').innerHTML = "";
-					document.getElementById('HEX2').innerHTML = "";
-					//redraw with a new color
-					pickColor();
-				}
-				else
-				{
-					grad = true;
-					//redraw with a gradient
-					pickColor();
-				}
-			}
-			
-			function setGrad(x)
-			{
-				grad = x;
-			}
-			
-			function getGrad()
-			{
-				return grad;
-			}
-			
-			function pickColor()
-			{
-				//pick 3 random colors
-				var r = Math.floor((Math.random() * 195) + 20 );
-				var g = Math.floor((Math.random() * 195) + 20 );
-				var b = Math.floor((Math.random() * 195) + 20 );
-				
-				//change text to rgba and hex values for our color
-				document.getElementById('HEX').innerHTML = "0x" + r.toString(16).toUpperCase() + g.toString(16).toUpperCase() + b.toString(16).toUpperCase();
-				document.body.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
-				//change our background to the new color
-				if (grad)
-				{
-					var r1 = Math.floor((Math.random() * 205) + 50 );
-					var g1 = Math.floor((Math.random() * 205) + 50 );
-					var b1 = Math.floor((Math.random() * 205) + 50 );
-					//document.body.style.background = "linear-gradient(35deg, rgb(" + r + "," + g + "," + b + "), rgb(" + r1 + "," + g1 + "," + b1 + ") ";
-					document.getElementById('bgimg').style.background = "linear-gradient(135deg, rgb(" + r + "," + g + "," + b + "), rgb(" + r1 + "," + g1 + "," + b1 + ") ";
-					document.getElementById('leftsquare').style.background = "linear-gradient(135deg, rgb(" + r + "," + g + "," + b + "), rgb(" + r1 + "," + g1 + "," + b1 + ") ";
-					document.getElementById('rightsquare').style.background = "linear-gradient(135deg, rgb(" + r + "," + g + "," + b + "), rgb(" + r1 + "," + g1 + "," + b1 + ") ";
-					document.getElementById('RGB').innerHTML = "RGB " + r + " " + g + " " + b;
-					document.getElementById('RGB2').innerHTML = "RGB " + r1 + " " + g1 + " " + b1;
-					document.getElementById('HEX2').innerHTML = "0x" + r1.toString(16).toUpperCase() + g1.toString(16).toUpperCase() + b1.toString(16).toUpperCase();
-				}
-				
-				else
-				{
-					document.body.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
-					document.getElementById('RGB').innerHTML = "RGB " + r + " " + g + " " + b;
-				}
-			}
-			
-			function randomColor() 
-			{
-				return Math.floor((Math.random() * 255));
-			}	
-			
-		</script>
+		<script src="colors.js"></script>
     </head>
 	
-	
-	<body onload="pickColor(); changeColor();">	
+	<body onload="selectRandomColor(); colorTime();">	
 		<div id="bgimg">
 		</div>
 		<div id = "container">
 			<div id = "bar">
 				<div id = "squarecontainer1">
 				
-					<div id = "leftsquare" class = "squareclass" onclick="pickColor();">						
+					<div id = "leftsquare" class = "squareclass" onclick="selectRandomLeft();">						
 					</div>
 					<div id = "RGB" class = "text">
 					</div>
@@ -103,7 +24,7 @@
 				
 				<div id = "squarecontainer2">
 				
-					<div id = "rightsquare" class = "squareclass">						
+					<div id = "rightsquare" class = "squareclass" onclick="selectRandomRight();">						
 					</div>
 					<div id = "RGB2" class = "text">
 					</div>
