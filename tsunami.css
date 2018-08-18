@@ -1,0 +1,137 @@
+body
+{
+	background-color: #383838;
+	font-family: "arial";
+}
+
+.navbar
+{
+	position: fixed;
+	display: block;
+	top:0;
+	left:0;
+	height: 50px;
+	width: 100%;
+	background-color: #FFFFFF;
+	box-shadow: 0px 2px 4px #000000;
+	z-index: 10;
+}
+
+
+a
+{
+	position: absolute;
+	display: inline-block;
+	left: 0px;
+	top: 0px;
+	width: 480px;
+	height: 270px;
+}
+
+p
+{
+	position: relative;
+	text-decoration: none;
+	color: #0F0F0F;
+	font-size: 40px;
+}
+
+#container
+{
+	display: flex;
+	flex-direction: column;
+	height: 50vw;	
+	background-color: white;
+}
+
+.whitebar
+{
+	position: absolute;
+	display: block;
+	width: 480px;
+	height: 350px;
+	background-color: #FFFFFF;
+	z-index: -2;
+}
+
+h1
+{
+	margin: auto;
+	text-align: center;
+	color: #0F0F0F;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+table, th
+{
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+td
+{
+	margin: auto;
+	text-align: center;
+}
+
+#tbl
+{
+	position: relative;
+}
+
+.player
+{
+	color: orange;
+}
+
+.contribution
+{
+	color: blue;
+}
+
+.barClass
+{
+	position: relative;
+	display: flex;
+	/*flex-direction: column;*/
+	justify-content: center;
+}
+
+#topContributors
+{
+	margin-top: 5vw;
+	flex-direction: column;
+}
+
+#first
+{
+	color: red;
+	font-size: 50px;
+}
+#second
+{
+	color: blue;
+	font-size: 40px;
+}
+#third
+{
+	color: green;
+	font-size: 30px;
+}
+#fouth
+{
+	color: gray;
+	font-size: 25px;
+}
+#fifth
+{
+	color: black;
+	font-size: 20px;
+}
+
+
+#tableContainer
+{
+
+}
+

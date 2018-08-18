@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tsunami Ocean Reporting </title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="tsunami.css">	
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+		<script type='text/javascript'>    
+			var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1bTzFiyccAmq7gAvfJDhQh3HykuFtVpVu50yuVZnS7rQ/edit?usp=sharing';
+
+			function init() 
+			{
+				Tabletop.init( { key: publicSpreadsheetUrl,
+                         callback: showInfo,
+                         simpleSheet: true,
+                         orderby: 'Contribution',
+                         reverse: true } );
+ 			}
+
+			function showInfo(data, tabletop) 
+			{
+				console.log(data);
+				drawTable(data);
+				document.getElementById('first').innerHTML = data[0].Player;
+				document.getElementById('second').innerHTML = data[1].Player;
+				document.getElementById('third').innerHTML = data[2].Player;
+				document.getElementById('fourth').innerHTML = data[3].Player;
+				document.getElementById('fifth').innerHTML = data[4].Player;
+				
+				
+			}
+
+			window.addEventListener('DOMContentLoaded', init)
+
+			
+			
+			function drawTable(data) 
+			{
+				var totalRows = data.length;
+				var cellsInRow = 2;
+				// creates a <table> element
+				var tbl = document.getElementById('tbl');
+				
+				// creating rows
+				for (var r = 0; r < totalRows; r++) 
+				{
+					var row = document.createElement("tr");
+
+					var player = document.createElement("td");
+					var playerClass = document.createElement("class");
+					playerClass.className = "player";
+
+					var contribution = document.createElement("td");
+					var contClass = document.createElement("class");
+					contClass.className = "contribution";
+
+					var playerVal = document.createTextNode(data[r].Player);
+					var contVal =  document.createTextNode(data[r].Contribution);
+
+					playerClass.appendChild(playerVal);
+					player.appendChild(playerClass);
+
+					contClass.appendChild(contVal);
+					contribution.appendChild(contClass);
+
+					row.appendChild(player);
+					row.appendChild(contribution);        
+						
+					tbl.appendChild(row); // add the row to the end of the table body
+				}    
+				//div1.appendChild(tbl); // appends <table> into <div1>
+			}
+		
+			function sortTable(n, alphabet) 
+			{
+				var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+				table = document.getElementById("tbl");
+				switching = true;
+				
+				dir = "asc";
+				
+				while (switching) 
+				{
+					switching = false;
+					rows = table.rows;
+
+					if(alphabet)
+					{
+						console.log("wtf");
+						for (i = 1; i < (rows.length - 1); i++) 
+						{
+							shouldSwitch = false;
+							x = rows[i].getElementsByTagName("TD")[n];
+							y = rows[i + 1].getElementsByTagName("TD")[n];
+							if (dir == "asc") 
+							{
+								if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) 
+								{
+									shouldSwitch = true;
+									break;
+								}
+							} 
+							else if (dir == "desc") 
+							{
+								if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) 
+								{
+									shouldSwitch = true;
+									break;
+								}
+							}
+						}
+					}
+					else
+					{
+						for (i = 1; i < (rows.length - 1); i++) 
+						{
+							shouldSwitch = false;
+							x = rows[i].getElementsByClassName("contribution")[n];
+							y = rows[i + 1].getElementsByClassName("contribution")[n];
+							if (dir == "asc") 
+							{
+								if (Number(x.innerHTML) > Number(y.innerHTML)) 
+								{
+								shouldSwitch = true;
+								console.log("a");
+								break;
+								}
+							} 
+							else if (dir == "desc") 
+							{
+								if (Number(x.innerHTML) < Number(y.innerHTML)) 
+								{
+								shouldSwitch = true;
+								console.log("b");
+								break;
+								}
+							}
+						}
+					}
+					if (shouldSwitch) 
+					{
+						rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+						switching = true;
+						switchcount ++;
+					} 
+					else 
+					{
+						if (switchcount == 0 && dir == "asc") 
+						{
+							dir = "desc";
+							switching = true;
+							console.log("mewo");
+						}
+					}
+				}
+			}			
+		</script>
+    </head>
+	
+	<body>	
+		<div class="navbar">
+			<h1>Tsunami Top Contributors</h1>
+		</div>
+		<div id = "container">
+			<div id = "topContributors" class="barClass">
+				<div id="first">
+					<p></p>
+				</div>
+				<div id="second">
+					<p></p>
+				</div>
+				<div id="third">
+					<p></p>
+				</div>
+				<div id="fourth">
+					<p></p>
+				</div>
+				<div id="fifth">
+					<p></p>
+				</div>
+			</div>
+			<div id = "tableBar" class="barClass">
+					<table id="tbl">
+						<th onClick="sortTable(0, true)">Player</th>
+						<th onClick="sortTable(0, false)">Contribution</th>
+				</div>
+			</div>
+		</div>	
+	<script>
+
+</script>
+	</body>
+</html>
+	
+	
